@@ -25,8 +25,8 @@ class ApplicationController < Sinatra::Base
     redirect '/users/home'
   end
 
+# renders the login template
   get '/sessions/login' do
-  # the line of code below render the view page in app/views/sessions/login.erb
     erb :'sessions/login'
   end
 
