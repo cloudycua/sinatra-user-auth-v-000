@@ -7,6 +7,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "secret"
   end
 
+# renders the homepage view
   get '/' do
     erb :home
   end
