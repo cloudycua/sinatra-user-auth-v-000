@@ -26,6 +26,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/sessions' do
+    # find the user who submitted the log in forms by looking in your database 
+      #   for the user with the email and password from the params
+      # sign them in by setting the session[:id] equal to the user's id
+  
+      # redirect the user to this route: get '/users/home' 
+      #  that route is in the Users Controller. Go check out the code there.   
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
       session[:user_id] = @user.id
@@ -35,6 +41,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/sessions/logout' do
+    # log out the user by clearing the session hash here
     redirect '/'
   end
 
