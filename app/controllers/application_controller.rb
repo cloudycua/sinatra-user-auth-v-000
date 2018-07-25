@@ -45,9 +45,10 @@ class ApplicationController < Sinatra::Base
     redirect '/sessions/login'
   end
 
-# successfully logs out and redirects to the homepage
+# logs out the user by clearing the session hash
+# redirects to the homepage
   get '/sessions/logout' do
-    # log out the user by clearing the session hash here
+    session.clear
     redirect '/'
   end
 
