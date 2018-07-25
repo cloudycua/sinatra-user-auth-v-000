@@ -51,11 +51,11 @@ class ApplicationController < Sinatra::Base
   end
 
 # find the current user by finding the user with the id stored in session[:id]
-# set that user equal @user variable so the user homepage view can use that info to welcome the user
+# sets that user equal @user variable so the user homepage view can use that info to welcome the user
 
   get '/users/home' do
-    
-        
+
+
     @user = User.find(session[:user_id])
     erb :'/users/home'
   end
