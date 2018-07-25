@@ -45,6 +45,7 @@ class ApplicationController < Sinatra::Base
     redirect '/sessions/login'
   end
 
+# successfully logs out and redirects to the homepage
   get '/sessions/logout' do
     # log out the user by clearing the session hash here
     redirect '/'
