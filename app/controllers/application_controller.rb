@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/sessions/login' do
-  # the line of code below render the view page in app/views/sessions/login.erb  
+  # the line of code below render the view page in app/views/sessions/login.erb
     erb :'sessions/login'
   end
 
@@ -49,9 +49,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/users/home' do
-    # find the current user by finding the user with the id that is stored 
+    # find the current user by finding the user with the id that is stored
         #   in session[:id]
-        # set that user equal to a variable, @user, so that the view found in 
+        # set that user equal to a variable, @user, so that the view found in
         #   app/views/users/home.erb can render that user
     @user = User.find(session[:user_id])
     erb :'/users/home'
