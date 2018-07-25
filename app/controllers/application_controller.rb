@@ -17,9 +17,9 @@ class ApplicationController < Sinatra::Base
     erb :'/registrations/signup'
   end
 
+# uses the data in params to create a new user
+# logs them in by setting the session[:id] equal to the user's id
   post '/registrations' do
-    # use the data in params to create a new user and log them in by
-        # setting the session[:id] equal to the user's id here
     @user = User.find_by(email: params[:email])
     session[:user_id] = @user.id
     redirect '/users/home'
@@ -35,7 +35,6 @@ class ApplicationController < Sinatra::Base
 # redirects the user to user's homepage: get '/users/home'
 # that route is in the Users Controller. Go check out the code there.
   post '/sessions' do
-    
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
       session[:user_id] = @user.id
