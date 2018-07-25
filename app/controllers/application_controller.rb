@@ -30,13 +30,12 @@ class ApplicationController < Sinatra::Base
     erb :'sessions/login'
   end
 
+# finds user from log in form by matching the email and password from the params to the database
+# signs them in by setting the session[:id] equal to the user's id
+# redirects the user to user's homepage: get '/users/home'
+# that route is in the Users Controller. Go check out the code there.
   post '/sessions' do
-    # find the user who submitted the log in forms by looking in your database
-      #   for the user with the email and password from the params
-      # sign them in by setting the session[:id] equal to the user's id
-
-      # redirect the user to this route: get '/users/home'
-      #  that route is in the Users Controller. Go check out the code there.
+    
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
       session[:user_id] = @user.id
