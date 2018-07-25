@@ -12,6 +12,7 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
+# renders the sign-up template
   get '/registrations/signup' do
     erb :'/registrations/signup'
   end
